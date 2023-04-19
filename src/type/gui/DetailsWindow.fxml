@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="white-bg" stylesheets="@FirstWindowDesign.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="type.gui.DetailsWindowController">
+   <children>
+      <AnchorPane layoutX="205.0" prefHeight="416.0" prefWidth="358.0" styleClass="logout" stylesheets="@FirstWindowDesign.css">
+         <children>
+            <Button layoutX="103.0" layoutY="158.0" mnemonicParsing="false" onAction="#gerertype" prefHeight="26.0" prefWidth="160.0" styleClass="add-btn" stylesheets="@FirstWindowDesign.css" text="gerer les types" />
+            <Button layoutX="103.0" layoutY="218.0" mnemonicParsing="false" onAction="#gererevent" prefHeight="26.0" prefWidth="160.0" styleClass="add-btn" stylesheets="@FirstWindowDesign.css" text="gerer les evenements" />
+            <Label graphicTextGap="50.0" layoutX="7.0" layoutY="7.0" prefHeight="68.0" prefWidth="358.0" styleClass="white-bg" stylesheets="@FirstWindowDesign.css" text="Tunisport" textAlignment="CENTER" textFill="#0000007d" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="176.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@324696492_915666869589915_6031358976702792105_n.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
