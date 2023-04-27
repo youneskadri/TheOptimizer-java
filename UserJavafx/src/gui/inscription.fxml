@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="PaneSignup" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.InscriptionController">
+   <children>
+      <ImageView fitHeight="384.0" fitWidth="216.0" layoutX="158.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edu/images/tunisport.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="803.0" prefWidth="672.0" style="-fx-background-color: #262626;">
+         <children>
+            <ImageView fitHeight="384.0" fitWidth="216.0" layoutX="167.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="100.0">
+               <image>
+                  <Image url="@../edu/images/tunisport.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="txtFName" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="229.0" prefHeight="25.0" prefWidth="286.0" promptText="first Name" />
+      <JFXTextField fx:id="txtSName" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="320.0" prefHeight="25.0" prefWidth="286.0" promptText="second Name" />
+      <JFXTextField fx:id="txtEmail" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="402.0" prefHeight="25.0" prefWidth="286.0" promptText="Email" />
+      <JFXPasswordField fx:id="txtFPass" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="545.0" prefHeight="25.0" prefWidth="286.0" promptText="Password" />
+      <Label layoutX="801.0" layoutY="90.0" prefHeight="51.0" prefWidth="321.0" text="Create Account">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="registerButton" layoutX="814.0" layoutY="648.0" onAction="#registerButtonOnAction" prefHeight="68.0" prefWidth="217.0" style="-fx-background-radius: 20; -fx-background-color: #262626;" styleClass="ra" text="Sign up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtPhone" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="471.0" prefHeight="25.0" prefWidth="286.0" promptText="+216" />
+      <JFXButton fx:id="loginPage" layoutX="908.0" layoutY="735.0" onAction="#loginPage" text="login" />
+   </children>
+</AnchorPane>
