@@ -3,25 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/tunisportdesktop/TuniSportDesktop.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/NewInterface.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/gui/NewFXMain.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/tools/MaConnection.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/entities/Category_transport.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/Category_hebergementService.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/gui/TransportController.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/entities/Hebergement.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/entities/localisation.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/entities/Transport.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/gui/DetailsController.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/HebergementService.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/gui/transport.fxml</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/LocalisationService.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/Category_transportService.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/services/TransportService.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/entities/Category_hebergement.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/test/tunisport.java</file>
-            <file>file:/C:/Tunisport-java/TuniSportDesktop/src/com/tunisport/gui/TunisportController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/api/JavaMail.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/DetailsController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/map.html</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/entities/Category_transport.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/services/Category_hebergementService.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/services/LocalisationService.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/tools/MaConnection.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/test/tunisport.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/ClientController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/services/TransportService.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/TransportController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/entities/Transport.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/services/NewInterface.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/entities/Hebergement.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/GoogleMapsController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/NewFXMain.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/gui/TunisportController.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/services/HebergementService.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/entities/Category_hebergement.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/tunisportdesktop/TuniSportDesktop.java</file>
+            <file>file:/C:/Users/kadri%20younes/Desktop/TheOptimizer-java/TuniSportDesktop/src/com/tunisport/entities/localisation.java</file>
         </group>
     </open-files>
 </project-private>

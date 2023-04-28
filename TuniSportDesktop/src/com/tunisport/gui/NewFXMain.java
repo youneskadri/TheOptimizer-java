@@ -5,6 +5,7 @@
  */
 package com.tunisport.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -26,9 +29,18 @@ public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-       
+   
+  //  Media media = new Media("file:///C:/Users/kadri%20younes/Desktop/TheOptimizer-java/music/Hayya.mp3");
+
+// create a media player
+//MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+// play the audio file
+//mediaPlayer.play();
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("transport.fxml"));
+            
+            Parent root = FXMLLoader.load(getClass().getResource("Client.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Tunisport");

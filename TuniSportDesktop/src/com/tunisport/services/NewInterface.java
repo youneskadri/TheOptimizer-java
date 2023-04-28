@@ -13,8 +13,10 @@ import java.util.List;
  */
 public interface NewInterface<T> {
         public T read(int id);
+        
     public void update(T t);
     public void ajouter(T t);
     public List<T> afficher();
     public void supprimer(T t);
+
 }

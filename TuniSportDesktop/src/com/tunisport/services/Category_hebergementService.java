@@ -88,6 +88,8 @@ String sql="insert into Category_hebergement(nomcategory) values (?)";
         }    
     }
 
+
+
     @Override
     public Category_hebergement read(int id){
         String sql = "SELECT Nomcategory FROM category_hebergement WHERE id = ?";

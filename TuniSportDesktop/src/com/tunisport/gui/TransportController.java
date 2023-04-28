@@ -13,12 +13,21 @@ import com.tunisport.services.Category_hebergementService;
 import com.tunisport.services.Category_transportService;
 import com.tunisport.services.LocalisationService;
 import com.tunisport.services.TransportService;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,15 +38,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -45,10 +61,10 @@ import javafx.util.Callback;
  * @author kadri younes
  */
 public class TransportController implements Initializable {
+      File f;
 
     @FXML
     private TextField categorytransport;
-    @FXML
     private TextField imagetrans;
     @FXML
     private TextField nomtransport;
@@ -91,12 +107,53 @@ public class TransportController implements Initializable {
     private Label ctrlnom;
     @FXML
     private Label lb;
+    @FXML
+    private Button btnimage;
+       private FileChooser fileChooser; 
+    @FXML
+    private TextField searchbar;
+    @FXML
+    private Button plan_btn;
+    @FXML
+    private Button category_btn;
+    @FXML
+    private AnchorPane plan_form;
+    @FXML
+    private AnchorPane category_form;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lb.setText("welcome");
+        circuitshow.setCellValueFactory(new PropertyValueFactory<>("nom_transport"));
+                categorueshow.setCellValueFactory(new PropertyValueFactory<>("categ_transport"));
+
+                // Associer les données à la table
+       circuitshow.setCellValueFactory(new PropertyValueFactory<>("nom_transport"));
+                categorueshow.setCellValueFactory(new PropertyValueFactory<>("categ_transport"));
+
+                // Associer les données à la table
+                plantransport.setItems(test);
+                 searchbar.textProperty().addListener((observable, oldValue, newValue) -> {
+        // utiliser la méthode filter() de l'objet categories pour filtrer les résultats
+        plantransport.setItems(test.filtered(Transport -> {
+            String lowerCaseFilter = newValue.toLowerCase();
+            return Transport.getNom_transport().toLowerCase().contains(lowerCaseFilter)
+                 ||    Transport.getC().toString().toLowerCase().contains(lowerCaseFilter);
+        }));
+    });
+         // Set up table columns
+    circuitshow.setCellValueFactory(new PropertyValueFactory<>("nom_transport"));
+    categorueshow.setCellValueFactory(new PropertyValueFactory<>("categ_transport"));
+
+          fileChooser = new FileChooser();
+          fileChooser.setTitle("choisir un image");
+          fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images","*.jpg","*.gif"),
+                new FileChooser.ExtensionFilter("Tous les fichier","*.*"));
+                
+     
         List<Category_transport> localisations = ls.afficher();
         String[] emplacement = new String[localisations.size()];
         for (int i = 0; i < localisations.size(); i++) {
@@ -130,7 +187,33 @@ public class TransportController implements Initializable {
             };
             return cell;
         };
-           
+          planshow.setCellFactory(column ->{
+            return new TableCell<Transport,String>(){
+                final ImageView imageView = new ImageView();
+                    {
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        setGraphic(imageView);
+                    }
+                protected void updateItem(String imageName, boolean empty) {
+                    super.updateItem(imageName, empty);
+                    if (imageName == null || empty) {
+                        imageView.setImage(null);
+                    }else{
+                        try {
+                            FileInputStream stream = new FileInputStream(imageName);
+                            Image image = new Image(stream);
+                            imageView.setImage(image);
+                            imageView.setFitWidth(50); 
+                            imageView.setFitHeight(50);
+                        } catch (Exception ex) {
+                            System.out.println(ex.getMessage());
+                        }
+                        
+                    }
+                }    
+            };
+        }
+        );
            planshow.setCellValueFactory(new PropertyValueFactory<Transport,String>("image_transport"));
            circuitshow.setCellValueFactory(new PropertyValueFactory<Transport,String>("nom_transport"));
            categorueshow.setCellValueFactory(new PropertyValueFactory<Transport,String>("c"));
@@ -190,25 +273,67 @@ public class TransportController implements Initializable {
     }
     
     }
+ @FXML
+    private void insererimage(ActionEvent event) throws FileNotFoundException, IOException {
+        FileChooser fc = new FileChooser();
+  //  fc.setTitle("Ajouter une Image");
+   // fc.getExtensionFilters().addAll(
+      //      new FileChooser.ExtensionFilter("Images", ".png", ".jpg", "*.gif"));
+    f = fc.showOpenDialog(null);
+  //  String DBPath = "C:\\xampp\\htdocs" + f.getName();
+   // String i = f.getName();
+    if (f != null) {
+        
+        BufferedImage bufferedImage = ImageIO.read(f);
+        WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
+        String imagePath = "C://xampp/htdocs/img/" + f.getName();
+        File destFile = new File(imagePath);
+     Files.copy(f.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        
+        FileInputStream fin = new FileInputStream(f);
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buf = new byte[1024];
+        for (int readNum; (readNum = fin.read(buf)) != -1;) {
+            bos.write(buf, 0, readNum);
+        }
+        byte[] post_image = bos.toByteArray();
+        
+    }
 
+    }
     @FXML
-    private void ajout_tr(ActionEvent event) {
-        if(imagetrans.getText().isEmpty()){
-            ctrlplan.setText("Required");
-             System.out.println("champs est vide");
-             return;
-        }
-  if(nomtransport.getText().isEmpty()){
-            ctrlnom.setText("Required");
-             System.out.println("champs est vide");
-             return;
-        }
-          Category_transportService ts = new Category_transportService();
-                         Category_transport t = new Category_transport(categorytransport.getText());
-        TransportService as = new TransportService();
-                                  Transport a = new Transport(imagetrans.getText(),nomtransport.getText(),ts.read(Character.getNumericValue(combotrans.getValue().charAt(0))));
- 
-                          as.ajouter(a);
+   private void ajout_tr(ActionEvent event) throws IOException {
+    if (nomtransport.getText().isEmpty()) {
+        ctrlnom.setText("Required");
+        System.out.println("champs est vide");
+        return;
+    }
+
+    // Get the selected category transport
+    Category_transportService cts = new Category_transportService();
+    Category_transport ct = cts.read(Character.getNumericValue(combotrans.getValue().charAt(0)));
+// Get the image file path from the file chooser dialog
+  //  FileChooser fc = new FileChooser();
+    //fc.setTitle("Ajouter une Image");
+   // fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", ".png", ".jpg", "*.gif"));
+   // File f = fc.showOpenDialog(null);
+    if (f == null) {
+        System.out.println("Aucun fichier sélectionné.");
+        return;
+    }
+    String imagePath = f.getAbsolutePath();
+
+    // Create a new Transport object with the input values
+    TransportService ts = new TransportService();
+    Transport t = new Transport();
+    t.setNom_transport(nomtransport.getText());
+    t.setC(ct);
+    t.setImage_transport(imagePath);
+
+    // Add the Transport object to the database
+    ts.ajouter(t);
+
+    // Navigate back to the transport view
   try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("transport.fxml"));
         Parent root = loader.load();
@@ -323,8 +448,43 @@ public class TransportController implements Initializable {
     alert.showAndWait();
 }
 
+    @FXML
+    private void searchTransport(ActionEvent event) {
+  
+    String searchString = searchbar.getText();
+    ObservableList<Transport> transportList = FXCollections.observableArrayList(as.chercherServ(searchString));
+    plantransport.setItems(transportList);
+}
+
+    @FXML
+    private void switchForm(ActionEvent event) {
+
+        if (event.getSource() == plan_btn) {
+            plan_form.setVisible(true);
+            category_form.setVisible(false);
+           
+
+            plan_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3a4368, #28966c);");
+            category_btn.setStyle("-fx-background-color:transparent");
+           
+
+        } else if (event.getSource() == category_btn) {
+            plan_form.setVisible(false);
+            category_form.setVisible(true);
+           
+
+            category_btn.setStyle("-fx-background-color:linear-gradient(to bottom right, #3a4368, #28966c);");
+            plan_btn.setStyle("-fx-background-color:transparent");
+           
+
+        }
+    }
 
     }
+
+    
+    
+    
  
     
 

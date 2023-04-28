@@ -30,13 +30,13 @@ public class tunisport {
        // Category_hebergementService ps = new Category_hebergementService();
          Category_transport t = new Category_transport(1,"buuuus");
         Category_transportService ts = new Category_transportService();
-        localisation l = new localisation(1,"aryana");
+        localisation l = new localisation(18,"mahdia");
        // LocalisationService ls = new LocalisationService();
-         Hebergement H = new Hebergement(29,"png","noerg","deschebergement",ls.read(1),p);
+         Hebergement H = new Hebergement(29,"png","noerg","deschebergement",ls.read(18),p);
         HebergementService Hs = new HebergementService();
         Transport a = new Transport(1,"image","deschebergement",t);
         TransportService as = new TransportService();
-     // Hs.ajouter(H);
+     Hs.ajouter(H);
      // Hs.supprimer(H);
         // System.out.println(ls.read(1));
          System.out.println(ts.read(1));

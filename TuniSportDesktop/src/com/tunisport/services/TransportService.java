@@ -6,6 +6,7 @@
 package com.tunisport.services;
 
 import com.tunisport.entities.Category_hebergement;
+import com.tunisport.entities.Category_transport;
 import com.tunisport.entities.Hebergement;
 import com.tunisport.entities.Transport;
 import com.tunisport.tools.MaConnection;
@@ -16,6 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -97,28 +100,29 @@ String sql="insert into Transport(category_transport_id,image_transport,nom_tran
 
     @Override
     public Transport read(int id) {
-        String sql = "SELECT   FROM Transport WHERE id = ?";
+       String sql = "SELECT * FROM Transport WHERE id = ?";
 
-        try{
-            PreparedStatement ste = cnx.prepareStatement(sql);
-            ste.setInt(1, id);
+    try {
+        PreparedStatement ste = cnx.prepareStatement(sql);
+        ste.setInt(1, id);
 
-            try (ResultSet result = ste.executeQuery()) {
-                if (result.next()) {
-                    return new Transport(result.getInt(id),
-                  
+        try (ResultSet result = ste.executeQuery()) {
+            if (result.next()) {
+                return new Transport(
+                    result.getInt("id"),
                     result.getString("image_transport"),
-                    result.getString(" nom_transport"),
-                    ts.read(result.getInt("category_transport_id")));
-                  
-                } else {
-                    return null;
-                }
+                    result.getString("nom_transport"),
+                    ts.read(result.getInt("category_transport_id"))
+                );
+            } else {
+                return null;
             }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }    
-        return null;    }
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+    return null;   }
 
     @Override
     public void supprimer(Transport t) {
@@ -130,6 +134,38 @@ String sql="insert into Transport(category_transport_id,image_transport,nom_tran
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }    }
+   
+    public ObservableList<Transport> chercherServ(String chaine) {
+        String sql = "SELECT * FROM Transport WHERE (nom_transport LIKE ? or category_transport_id = ?  )  ";
+        //Connection cnx= Maconnexion.getInstance().getCnx();
+        String ch = "%" + chaine + "%";
+        ObservableList<Transport> myList = FXCollections.observableArrayList();
+        try {
+
+            Statement ste = cnx.createStatement();
+            // PreparedStatement pst = myCNX.getCnx().prepareStatement(requete6);
+            PreparedStatement stee = cnx.prepareStatement(sql);
+            stee.setString(1, ch);
+            stee.setString(2, ch);
+
+            ResultSet rs = stee.executeQuery();
+            while (rs.next()) {
+                Transport e = new Transport();
+
+                e.setId(rs.getInt("id"));
+                e.setImage_transport(rs.getString("image_transport"));
+                e.setNom_transport(rs.getString("nom_transport"));
+            e.setC(ts.read(rs.getInt("category_transport_id")));
+                myList.add(e);
+                System.out.println("hebergement trouvé! ");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
     }
+}
+
+    
     
 

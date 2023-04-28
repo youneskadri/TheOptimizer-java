@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tunisport.gui.ClientController">
+   <children>
+      <ImageView fitHeight="520.0" fitWidth="938.0" layoutY="-1.0">
+         <image>
+            <Image url="@../Images/whiteBgBig.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-2.0" prefHeight="82.0" prefWidth="939.0" styleClass="black-bg" stylesheets="@../../../../dashboardDesign.css">
+         <children>
+            <ImageView fitHeight="59.0" fitWidth="50.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/tunisport.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="292.0" layoutY="28.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="HOME" />
+            <Button layoutX="361.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="ABOUT" />
+            <Button layoutX="426.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="EVENEMENTS" />
+            <Button layoutX="539.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#redirhebergement" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="H&amp;T" />
+            <Button layoutX="586.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="MATCHS" />
+            <Button layoutX="664.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@dashboardDesign.css" text="RESERVATIONS" />
+            <Circle fx:id="PDF" layoutX="837.0" layoutY="42.0" onMouseClicked="#OnBtnClicked" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle layoutX="868.0" layoutY="42.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle layoutX="901.0" layoutY="42.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <Button layoutX="807.0" layoutY="7.0" mnemonicParsing="false" styleClass="sign-btn" stylesheets="@dashboardDesign.css" text="SIGNUP/LOGIN">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1.0" layoutY="82.0" prefHeight="167.0" prefWidth="938.0">
+         <children>
+            <ImageView fitHeight="175.0" fitWidth="938.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/innerpageBg.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="484.0" layoutY="66.0" text="Hebergements" textFill="#b91717">
+               <font>
+                  <Font name="Candara Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="333.0" layoutY="66.0" text="Transport" textFill="WHITE">
+               <font>
+                  <Font name="Candara Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reservation_form" layoutY="82.0" prefHeight="439.0" prefWidth="938.0">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="290.0" layoutX="45.0" layoutY="185.0">
+               <image>
+                  <Image url="@../Images/redBg.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="198.0" text="Transport" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ListView fx:id="plantransport" layoutX="32.0" layoutY="231.0" prefHeight="203.0" prefWidth="871.0" />
+            <TextField fx:id="searchbar" layoutX="594.0" layoutY="187.0" onAction="#searchTransport" prefHeight="23.0" prefWidth="321.0" stylesheets="@../../../../dashboardDesign.css">
+               <styleClass>
+                  <String fx:value="search" />
+                  <String fx:value="black-bg" />
+               </styleClass>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="add_reservation_form" layoutX="1.0" layoutY="257.0" prefHeight="263.0" prefWidth="938.0" visible="false">
+         <children>
+            <Label layoutX="232.0" layoutY="157.0" text="Etat de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="552.0" layoutY="84.0" text="Date de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dpdate" layoutX="546.0" layoutY="106.0" />
+            <ComboBox fx:id="cbmatch" layoutX="552.0" layoutY="45.0" prefWidth="150.0" styleClass="labbtn" stylesheets="@stylesheet.css" />
+            <ComboBox fx:id="cbuser" layoutX="221.0" layoutY="45.0" prefWidth="150.0" styleClass="labbtn" stylesheets="@stylesheet.css" />
+            <Label layoutX="232.0" layoutY="84.0" text="Nombre de billet">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="559.0" layoutY="24.0" text="Match associé">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="234.0" layoutY="24.0" text="Utilisateur">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnajouter" layoutX="593.0" layoutY="180.0" mnemonicParsing="false" onAction="#ajouterReservation" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Enregistrer" />
+            <TextField fx:id="tfetat" layoutX="222.0" layoutY="180.0" styleClass="labbtn" stylesheets="@stylesheet.css" />
+            <TextField fx:id="tfnbrbillet" layoutX="222.0" layoutY="106.0" styleClass="labbtn" stylesheets="@stylesheet.css" />
+            <Button fx:id="btnretour" layoutX="805.0" layoutY="180.0" mnemonicParsing="false" onAction="#reserverBillet" styleClass="clear-btn" stylesheets="@dashboardDesign.css" text="Retour" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
