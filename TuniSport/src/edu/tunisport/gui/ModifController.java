@@ -7,6 +7,7 @@ package edu.tunisport.gui;
 
 import edu.tunisport.entities.Blog;
 import edu.tunisport.services.BlogCRUD;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -16,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,6 +26,7 @@ import javafx.scene.control.TextField;
  * @author medah
  */
 public class ModifController implements Initializable {
+   public Stage stage;
 
     @FXML
     private TextField tftile;
@@ -36,7 +40,7 @@ public class ModifController implements Initializable {
     private Button ModifButton;
     @FXML
     private Button AnnulerButton;
-
+    String img;
     /**
      * Initializes the controller class.
      */
@@ -50,7 +54,6 @@ public class ModifController implements Initializable {
         tftile.setText(u.getTitre());
         tfDescreption.setText(u.getDescreption());
         tfContenu.setText(u.getContenu());
-        tfimage.setText(u.getImage());
        
         BlogCRUD SU = new BlogCRUD();
        
@@ -62,7 +65,7 @@ public class ModifController implements Initializable {
         u.setDescreption(tfDescreption.getText());
         u.setContenu(tfContenu.getText());
        
-        u.setImage(tfimage.getText());
+        u.setImage(this.img);
        
         if (tftile.getText().isEmpty() || tfDescreption.getText().isEmpty()|| tfContenu.getText().isEmpty()) {
         // No category is selected, show an error message
@@ -72,10 +75,28 @@ public class ModifController implements Initializable {
         return;
     }
         
-        SU.modifier(u);
+        SU.updateEntity(u);
        
         });
        
         AnnulerButton.setOnAction((ActionEvent e)-> Platform.exit());
     }
+    
+     @FXML
+    private void insererImage(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+				
+				
+				fileChooser.setTitle("Open My File");
+				
+				
+				
+				File selectedFile = fileChooser.showOpenDialog(stage);
+				if (selectedFile != null) {
+					System.out.println("Open File");
+					this.img = selectedFile.getPath()
+                                                ;
+				}
+    
+}
 }

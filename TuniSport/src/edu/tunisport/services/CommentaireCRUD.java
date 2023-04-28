@@ -66,6 +66,28 @@ public class CommentaireCRUD implements EntityCRUD<Commentaire>{
                 return myList;
             }   
 
+    public ObservableList<Commentaire> displayEntitieswithcommentaire(Integer b) {
+        ObservableList<Commentaire> myList = FXCollections.observableArrayList();
+                try {   
+                    String requete= "SELECT * FROM commentaire WHERE blog_id = "+Integer.toString(b);
+                    Statement st = MyConnection.getInstance().getCnx()
+                            .createStatement();
+                    ResultSet rs = st.executeQuery(requete);
+                    while(rs.next()){
+                        Commentaire p = new Commentaire();
+                        System.out.println(rs.getInt("blog_id"));
+                        p.setId(rs.getInt(1));
+                        p.setBlog_id(rs.getInt("blog_id"));
+                        p.setUser_id(rs.getInt("user_id"));
+                        p.setContenu_com(rs.getString("contenu_com"));
+                        p.setDate_c(rs.getString("date_c"));
+                        myList.add(p);
+                    }
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                return myList;
+            } 
 
  @Override
     public void deleteEntity(Commentaire t) {

@@ -5,8 +5,10 @@
  */
 package edu.tunisport.gui;
 
+import Views.getData;
 import edu.tunisport.entities.Blog;
 import edu.tunisport.services.BlogCRUD;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -29,18 +33,21 @@ import javafx.stage.Stage;
  * @author medah
  */
 public class BlogController implements Initializable {
+    
+   public Stage stage;
 
-    @FXML
+    
     private TextField tfdescreption;
     @FXML
     private TextField tfcontenu;
     @FXML
-    private Button tfvalidate;
-    @FXML
     private TextField tftitle;
     @FXML
     private TextField tfimage;
+    @FXML
+    private TextField tfdescreption1;
     
+    String img;
 
     /**
      * Initializes the controller class.
@@ -52,33 +59,37 @@ public class BlogController implements Initializable {
 
     @FXML
     private void ajouterBlog(ActionEvent event) {
+        /*
           if (tftitle.getText().isEmpty() || tfdescreption.getText().isEmpty()|| tfcontenu.getText().isEmpty()) {
-        // No category is selected, show an error message
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Champs vide");
         alert.showAndWait();
         return;
+    }*/
+
+              System.out.println("1");
+          Blog p = new Blog(tftitle.getText(),tfdescreption1.getText(),tfcontenu.getText(),img);
+                        System.out.println("2");
+          BlogCRUD pc = new BlogCRUD();
+          
+          pc.addEntity(p);
     }
-               try {
-            
-            Blog p = new Blog(tftitle.getText(),tfdescreption.getText(),tfcontenu.getText(),tfimage.getText());
-            
-            BlogCRUD pc = new BlogCRUD();
-            pc.addEntity(p);
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("dtx.fxml"));
-            Parent root = loader.load();
-            BlogDetailsController dc = loader.getController();
-            dc.setTxtTitre(p.getTitre());
-            dc.setTxtDescreption(p.getDescreption());
-            dc.setTxtContenu(p.getContenu());
-            dc.setTxtImage(p.getImage());
-            
-            tftitle.getScene().setRoot(root);
-            
-                } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+
+    @FXML
+    private void insererImage(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+				
+				
+				fileChooser.setTitle("Open My File");
+				
+				
+				
+				File selectedFile = fileChooser.showOpenDialog(stage);
+				if (selectedFile != null) {
+					System.out.println("Open File");
+					this.img = selectedFile.getPath()
+                                                ;
+				}
     
+}
 }

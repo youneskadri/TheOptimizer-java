@@ -26,8 +26,8 @@ public class BlogCRUD implements EntityCRUD<Blog>{
     @Override
     public void addEntity(Blog t) {
   try {
-            String requete= "INSERT INTO blog (id,titre,descreption,contenu,image)"
-                    + "VALUES (?,?,?,?,?)";
+            String requete= "INSERT INTO blog (id,titre,descreption,contenu,image,likes)"
+                    + "VALUES (?,?,?,?,?,0)";
             PreparedStatement pst = MyConnection.getInstance().getCnx()
                     .prepareStatement(requete);
             pst.setString(1, Integer.toString(t.getId()));
@@ -79,6 +79,7 @@ public class BlogCRUD implements EntityCRUD<Blog>{
                 U.setDescreption(rst.getString("descreption"));
                 U.setContenu(rst.getString("contenu"));
                 U.setImage(rst.getString("image"));
+                U.setLikes(rst.getInt("likes"));
              
 
                 Utilisateurs.add(U);
@@ -121,8 +122,21 @@ public class BlogCRUD implements EntityCRUD<Blog>{
            
         }
     }
+  public void modifierLike(Blog u) {
+  String query = "UPDATE blog SET  likes ='" +u.getLikes()+"' WHERE id =" +u.getId()+"";
+     
+        try {
+        Statement stm = MyConnection.getInstance().getCnx().createStatement();
+            stm.executeUpdate(query);
+              System.out.println("Update Ye5dem");
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(BlogCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Update done");
+       }
        public void modifier(Blog u) {
-  String query = "UPDATE blog SET titre ='" +u.getTitre()+"',descreption ='" +u.getDescreption()+"',contenu ='" +u.getContenu()+"',image ='" +u.getImage()+"' WHERE id =" +u.getId()+"";
+  String query = "UPDATE blog SET titre ='" +u.getTitre()+"',descreption ='" +u.getDescreption()+"',contenu ='" +u.getContenu()+"',image ='" +u.getImage()+"',likes ='"+u.getId()+"";
      
         try {
         Statement stm = MyConnection.getInstance().getCnx().createStatement();

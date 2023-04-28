@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="100.0" minWidth="100.0" prefHeight="803.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.DetailsController">
+   <children>
+      <AnchorPane fx:id="reservation_form" layoutX="1.0" layoutY="82.0" prefHeight="735.0" prefWidth="713.0">
+         <children>
+            <Label layoutX="246.0" layoutY="233.0" text="LIGUE 1 PROFESSIONNELLE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="750.0" fitWidth="776.0" layoutY="-15.0">
+               <image>
+                  <Image url="@../../../Images/whiteBgBig.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="tfcontenu" editable="false" layoutX="68.0" layoutY="319.0" prefHeight="108.0" prefWidth="611.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+            <TextField fx:id="tftitle" editable="false" layoutX="157.0" layoutY="188.0" prefHeight="27.0" prefWidth="434.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+            <TextField fx:id="tfdescreption" editable="false" layoutX="68.0" layoutY="233.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="467.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+            <TextField fx:id="comment" layoutX="155.0" layoutY="451.0" prefHeight="43.0" prefWidth="418.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+            <TableView fx:id="tftable" layoutX="155.0" layoutY="501.0" prefHeight="191.0" prefWidth="418.0">
+               <columns>
+                  <TableColumn fx:id="tfid" minWidth="0.0" prefWidth="0.0" text="id" />
+                  <TableColumn fx:id="tfblog" minWidth="0.0" prefWidth="0.0" text="Blog" />
+                  <TableColumn fx:id="tfuser" prefWidth="67.0" text="User" />
+                  <TableColumn fx:id="tfcontenu1" prefWidth="350.0" text="Contenu" />
+                  <TableColumn fx:id="tfdate" minWidth="0.0" prefWidth="0.0" text="Date" />
+               </columns>
+            </TableView>
+            <Button layoutX="597.0" layoutY="460.0" mnemonicParsing="false" onAction="#ajoutercomment" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Ajouter" />
+            <Button layoutX="599.0" layoutY="590.0" mnemonicParsing="false" onAction="#RefreshMatchShowListData" styleClass="clear-btn" stylesheets="@dashboardDesign.css" text="Reload" />
+            <AnchorPane layoutX="-97.0" layoutY="-88.0" minHeight="0.0" minWidth="0.0" prefHeight="134.0" prefWidth="873.0" styleClass="black-bg" stylesheets="@dashboardDesign_1.css">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="50.0" layoutX="183.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/tunisport.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="292.0" layoutY="28.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="HOME" />
+                  <Button layoutX="361.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="BLOGS" />
+                  <Button layoutX="426.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="EVENEMENTS" />
+                  <Button layoutX="539.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="H&amp;T" />
+                  <Button layoutX="586.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="MATCHS" />
+                  <Button layoutX="664.0" layoutY="29.0" mnemonicParsing="false" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="RESERVATIONS" />
+                  <Circle layoutX="784.0" layoutY="44.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Circle layoutX="815.0" layoutY="44.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Circle layoutX="848.0" layoutY="44.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Button layoutX="779.0" layoutY="6.0" mnemonicParsing="false" styleClass="sign-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="SIGNUP/LOGIN">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="8.0" fitWidth="8.0" layoutX="314.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="778.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/icons8-f-de-facebook-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="809.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/icons8-instagram-64.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="842.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/icons8-twitter-50.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="163.0" fitWidth="776.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/innerpageBg.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="-32.0" layoutY="-26.0" prefHeight="167.0" prefWidth="807.0">
+               <children>
+                  <Label graphicTextGap="0.0" layoutX="445.0" layoutY="101.0" prefHeight="43.0" prefWidth="138.0" text="DETAILS" textFill="#b91717">
+                     <font>
+                        <Font name="Candara Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="329.0" layoutY="101.0" text="BLOG" textFill="WHITE">
+                     <font>
+                        <Font name="Candara Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="Imageview" fitHeight="116.0" fitWidth="155.0" layoutX="589.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

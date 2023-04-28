@@ -5,10 +5,14 @@
  */
 package edu.tunisport.gui;
 
+import edu.tunisport.entities.Blog;
 import edu.tunisport.entities.Commentaire;
+import edu.tunisport.services.BlogCRUD;
 import edu.tunisport.services.CommentaireCRUD;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,9 +24,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -128,6 +136,42 @@ public class AfficherCommentaireController implements Initializable {
                         stage.show();
     }
  
+    @FXML
+   public void RefreshMatchShowListData() throws SQLException {
+        CommentaireCRUD u = new CommentaireCRUD();
 
+      ObservableList<Commentaire> CommentaireList = u.displayEntities();
+        
+    tfid.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("id"));  
+    tfblog.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("blog_id"));
+    tfuser.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("user_id"));
+    tfcontenu.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("contenu_com"));
+    tfdate.setCellValueFactory(new PropertyValueFactory<Commentaire,String>("date_c"));
+ 
+
+   
+          tftable.setItems(CommentaireList);
+
+    }
+      @FXML
+    private void gotoblog(ActionEvent event) {
+
+         javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader ();
+                            loader.setLocation(getClass().getResource("afficherBlog.fxml"));
+                            try {
+                                loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+               Parent parent = loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(parent));
+                        stage.show();
+                        
+        Stage stage1 = (Stage) tftable.getScene().getWindow();
+  stage1.close();
+    // do what you have to do
+    }
    
 }
