@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.BlogController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="7.0" layoutY="14.0" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@stylesheet.css">
+         <children>
+            <TextField layoutX="1069.0" layoutY="35.0" opacity="0.5" prefHeight="30.0" prefWidth="222.0" promptText="Search Drive" style="-fx-background-color: transparent; -fx-border-radius: 50px; -fx-border-color: #AEB2C3;" text="Search Drive">
+               <font>
+                  <Font name="Berlin Sans FB" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#b9b6b6" />
+               </effect>
+            </TextField>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="1344.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8_bell_24px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="1368.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8_help_32px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="1395.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8_settings_26px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="1527.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8_slider_50px.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="666.0" layoutY="474.0" text="Descreption" />
+            <Label layoutX="356.0" layoutY="539.0" prefHeight="30.0" prefWidth="88.0" text="Contenu" />
+            <Button layoutX="573.0" layoutY="615.0" mnemonicParsing="false" onAction="#ajouterBlog" prefHeight="50.0" prefWidth="222.0" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Enrigister">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="356.0" layoutY="460.0" prefHeight="44.0" prefWidth="99.0" text="Titre" />
+            <Label layoutX="681.0" layoutY="543.0" text="Image" />
+            <TextField fx:id="tftitle" layoutX="461.0" layoutY="457.0" prefHeight="50.0" prefWidth="176.0" styleClass="labbtn" />
+            <TextField fx:id="tfcontenu" layoutX="454.0" layoutY="532.0" prefHeight="44.0" prefWidth="190.0" styleClass="labbtn" />
+            <TextField fx:id="tfdescreption1" layoutX="742.0" layoutY="460.0" prefHeight="44.0" prefWidth="249.0" styleClass="labbtn" />
+            <TextField fx:id="tfimage" layoutX="616.0" layoutY="447.0" prefHeight="26.0" prefWidth="149.0" styleClass="labbtn" visible="false" />
+            <Button layoutX="759.0" layoutY="529.0" mnemonicParsing="false" onAction="#insererImage" prefHeight="44.0" prefWidth="222.0" styleClass="clear-btn" stylesheets="@dashboardDesign.css" text="Choisis une image" />
+            <ImageView fitHeight="167.0" fitWidth="180.0" layoutX="62.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@tunisport.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutY="193.0" prefHeight="879.0" prefWidth="319.0" style="-fx-background-radius: 0px 50px 0px 0px;" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="21.0" layoutY="126.0" prefHeight="30.0" prefWidth="140.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="178.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="1.0" prefWidth="176.0" styleClass="sidebar-btn-text">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="72.0" text="Match" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="53.0" layoutY="208.0" prefHeight="34.0" prefWidth="176.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label onMouseClicked="#reservationclick" prefHeight="20.0" prefWidth="97.0" text="Reservation" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="246.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text" stylesheets="@dashboardDesign.css">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="88.0" text="  Blogs" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="276.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label onMouseClicked="#blogclick" prefHeight="17.0" prefWidth="59.0" text="Blog" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="306.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label alignment="CENTER" onMouseClicked="#commentaireclick" prefHeight="30.0" prefWidth="90.0" text="Commentaire" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button layoutX="4.0" layoutY="608.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="56.0" styleClass="nav-btn" stylesheets="@../../../../../../../Documents/TuniSport/src/edu/tunisport/gui/dashboardDesign.css" />
+                  <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="15.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-blog-64.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="11.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-football-24.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="13.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-les-plaintes-30.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="59.0" layoutY="447.0" prefHeight="27.0" prefWidth="140.0" text="Reclamations" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="14.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-heures-supplémentaires-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="57.0" layoutY="542.0" prefHeight="27.0" prefWidth="249.0" text="Hebergements &amp; Transports" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="19.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-aéroport-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="61.0" layoutY="795.0" prefHeight="27.0" prefWidth="71.0" text="Logout" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="17.0" layoutY="792.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Documents/TuniSport/src/edu/tunisport/Images/icons8-déconnexion-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="51.0" layoutY="358.0" prefHeight="27.0" prefWidth="118.0" text=" Evenements" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="412.0" onMouseClicked="#typeclick" prefHeight="30.0" prefWidth="63.0" text="Type" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="382.0" onMouseClicked="#evenementclick" prefHeight="30.0" prefWidth="99.0" text="Evenement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="149.0" prefHeight="27.0" prefWidth="88.0" text="  Matchs" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="475.0" onMouseClicked="#reclamationclick" prefHeight="30.0" prefWidth="99.0" text="Reclamation" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="36.0" layoutY="505.0" onMouseClicked="#reponseclick" prefHeight="30.0" prefWidth="99.0" text="Reponse" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="53.0" layoutY="570.0" onMouseClicked="#hebergementclick" prefHeight="30.0" prefWidth="99.0" text="Hebergement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="42.0" layoutY="600.0" onMouseClicked="#transportclick" prefHeight="30.0" prefWidth="99.0" text="Transport" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="80.0" layoutY="14.0" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

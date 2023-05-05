@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="log" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.LoginViewController">
+   <children>
+      <AnchorPane fx:id="log" layoutX="666.0" prefHeight="1080.0" prefWidth="1255.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField fx:id="textEmail" focusColor="#262626" labelFloat="true" layoutX="454.0" layoutY="397.0" prefHeight="25.0" prefWidth="409.0" promptText="Email" />
+            <JFXPasswordField fx:id="textPassword" focusColor="#262626" labelFloat="true" layoutX="449.0" layoutY="488.0" prefHeight="25.0" prefWidth="419.0" promptText="Password" />
+            <Label layoutX="534.0" layoutY="111.0" prefHeight="17.0" prefWidth="261.0" text="Access your account">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="569.0" layoutY="46.0" prefHeight="17.0" prefWidth="261.0" text="Welcome">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="forgotPss" layoutX="449.0" layoutY="534.0" onMouseClicked="#resetPass" text="Forgot password ?" />
+            <JFXButton fx:id="Login_Button" layoutX="511.0" layoutY="575.0" onAction="#loginButton" prefHeight="80.0" prefWidth="246.0" style="-fx-background-radius: 20; -fx-background-color: #262626;" styleClass="ra" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="604.0" layoutY="665.0" text="or">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="645.0" layoutY="736.0" prefHeight="80.0" prefWidth="271.0" style="-fx-background-color: #FE1A1A; -fx-background-radius: 20;" text="    Continue with gmail" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="325.0" layoutY="736.0" prefHeight="80.0" prefWidth="271.0" style="-fx-background-color: #2688FF; -fx-background-radius: 20;" text="Continue with facebook" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="FACEBOOK" size="30" />
+               </graphic>
+            </JFXButton>
+            <FontAwesomeIconView glyphName="LOCK" layoutX="416.0" layoutY="511.0" size="30" text="" wrappingWidth="23.00000622868538" />
+            <MaterialDesignIconView glyphName="ACCOUNT_CIRCLE" layoutX="416.0" layoutY="420.0" size="30" text="" wrappingWidth="23.00000622868538" />
+            <MaterialDesignIconView fill="WHITE" glyphName="GMAIL" layoutX="659.0" layoutY="787.0" size="30" />
+            <ImageView fitHeight="139.0" fitWidth="177.0" layoutX="576.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="1080.0" prefWidth="776.0" style="-fx-background-color: #262626;">
+         <children>
+            <ImageView fitHeight="384.0" fitWidth="216.0" layoutX="191.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="100.0">
+               <image>
+                  <Image url="@../images/tunisport.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

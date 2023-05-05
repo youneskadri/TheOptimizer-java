@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="580.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.GoogleMapsController">
+    <children>
+        <WebView fx:id="webView" layoutX="176.0" layoutY="1.0" prefHeight="580.0" prefWidth="665.0" />
+      <AnchorPane layoutX="-2.0" layoutY="1.0" prefHeight="580.0" prefWidth="178.0" style="-fx-background-radius: 0px 50px 0px 0px;" styleClass="nav-form" stylesheets="@template.css">
+         <children>
+            <Label alignment="TOP_RIGHT" layoutX="51.0" layoutY="161.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="27.0" prefWidth="120.0" text="Transport" textFill="#f8f7f7" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Arial Nova Cond" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="51.0" fitWidth="63.0" layoutY="141.0" onMouseClicked="#redirTransport" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/navigation.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="138.0" fitWidth="138.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/tunisport-2-63ebd9a061909.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="45.0" layoutX="3.0" layoutY="202.0" onMouseClicked="#redirhebergement" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/4118234.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="48.0" layoutY="212.0" prefWidth="126.0" text="Hebergement" textFill="#eeeded">
+               <font>
+                  <Font name="Century Schoolbook" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

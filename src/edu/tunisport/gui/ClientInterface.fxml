@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.ClientInterfaceController">
+ 
+    <children>
+       
+       <ListView fx:id="lv" layoutX="141.0" layoutY="614.0" prefHeight="352.0" prefWidth="414.0" stylesheets="@dashboardDesign.css" />
+      <Pane layoutX="918.0" layoutY="563.0" prefHeight="391.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="14.0" layoutY="22.0" prefHeight="17.0" prefWidth="83.0" text="Sujet :" />
+            <TextField fx:id="tfsujet" layoutX="14.0" layoutY="47.0" prefHeight="25.0" prefWidth="373.0" />
+            <Label layoutX="14.0" layoutY="82.0" prefHeight="17.0" prefWidth="83.0" text="Description :" />
+            <TextArea fx:id="tfdesc" layoutX="14.0" layoutY="106.0" prefHeight="89.0" prefWidth="373.0" />
+            <Button layoutX="29.0" layoutY="335.0" mnemonicParsing="false" onAction="#modifierbtn" prefHeight="25.0" prefWidth="83.0" text="Modifier" />
+            <Button layoutX="273.0" layoutY="335.0" mnemonicParsing="false" onAction="#supprimerbtn" prefHeight="25.0" prefWidth="83.0" text="Supprimer" />
+            <Label layoutX="14.0" layoutY="201.0" prefHeight="17.0" prefWidth="83.0" text="Reponse :" />
+            <TextArea fx:id="tfrep" editable="false" layoutX="14.0" layoutY="224.0" prefHeight="89.0" prefWidth="373.0" />
+         </children>
+      </Pane>
+      <Button layoutX="602.0" layoutY="966.0" mnemonicParsing="false" onAction="#ajouterbtn" prefHeight="30.0" prefWidth="152.0" text="Ajouter" />
+      <Pane layoutX="141.0" layoutY="560.0" prefHeight="51.0" prefWidth="414.0" style="-fx-background-color: #d6d6d6;">
+         <children>
+            <Label layoutX="26.0" layoutY="15.0" prefHeight="17.0" prefWidth="69.0" text="Sujet">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="202.0" layoutY="15.0" prefHeight="17.0" prefWidth="83.0" text="Description">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+     
+      </Pane>
+      <RadioButton fx:id="tb" layoutX="110.0" layoutY="531.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="60.0" text="tout">
+         <font>
+            <Font name="Candara" size="12.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="recrep" layoutX="183.0" layoutY="531.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="191.0" text="Reclamation repondus">
+         <font>
+            <Font name="Candara Bold" size="12.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="recnonrep" layoutX="382.0" layoutY="521.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="210.0" text="Reclamation non repondus">
+         <font>
+            <Font name="Candara Bold" size="12.0" />
+         </font></RadioButton>
+      <Button layoutX="678.0" layoutY="525.0" mnemonicParsing="false" onAction="#rechercherbtn" prefHeight="30.0" prefWidth="138.0" text="Rechercher" />
+      <ImageView fitHeight="62.0" fitWidth="91.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tunisport.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="127.0" prefWidth="1937.0" styleClass="black-bg" stylesheets="@dashboardDesign_1.css">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="108.0" layoutX="69.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/tunisport.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="702.0" layoutY="29.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="HOME" />
+            <Button layoutX="778.0" layoutY="30.0" mnemonicParsing="false" onAction="#gotoblog" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="BLOGS" />
+            <Button layoutX="843.0" layoutY="30.0" mnemonicParsing="false" onAction="#showEventF" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="EVENEMENTS" />
+            <Button layoutX="956.0" layoutY="30.0" mnemonicParsing="false" onAction="#showHebergF" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="H&amp;T" />
+            <Button layoutX="1003.0" layoutY="30.0" mnemonicParsing="false" onAction="#showMatch" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="MATCHS" />
+            <Button layoutX="1081.0" layoutY="30.0" mnemonicParsing="false" onAction="#gotoreservation" prefWidth="138.0" styleClass="navbar-btn" stylesheets="@../../../../../../Documents/tunisport/src/Views/dashboardDesign.css" text="RESERVATIONS" />
+            <Circle layoutX="1797.0" layoutY="52.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle layoutX="1831.0" layoutY="52.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle layoutX="1864.0" layoutY="52.0" radius="10.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="8.0" fitWidth="8.0" layoutX="314.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="1790.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8-f-de-facebook-24.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="1824.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8-instagram-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="1857.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/icons8-twitter-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="362.0" fitWidth="1937.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/innerpageBg.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

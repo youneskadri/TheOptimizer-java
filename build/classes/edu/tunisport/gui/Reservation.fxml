@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.ReservationController">
+   <children>
+      <TextField layoutX="415.0" layoutY="22.0" opacity="0.5" prefHeight="30.0" prefWidth="222.0" promptText="Search Drive" style="-fx-background-color: transparent; -fx-border-radius: 50px; -fx-border-color: #AEB2C3;" text="Search Drive">
+         <font>
+            <Font name="Berlin Sans FB" size="13.0" />
+         </font>
+         <effect>
+            <DropShadow color="#b9b6b6" />
+         </effect>
+      </TextField>
+      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="690.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8_bell_24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="714.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8_help_32px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="741.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8_settings_26px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="873.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8_slider_50px.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="reservation_form" layoutX="580.0" layoutY="327.0" prefHeight="506.0" prefWidth="680.0">
+         <children>
+            <Label alignment="CENTER" layoutX="40.0" layoutY="31.0" text="Matchs" textFill="#4b4642">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="41.0" layoutY="72.0" text="Liste des réservations" textFill="#545352">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="reservation_table" layoutX="34.0" layoutY="103.0" onMouseClicked="#ReservationSelect" prefHeight="130.0" prefWidth="612.0" stylesheets="@dashboardDesign.css">
+               <columns>
+                  <TableColumn fx:id="date_col" prefWidth="165.60003662109375" text="Date" />
+                  <TableColumn fx:id="etat_col" prefWidth="85.5999755859375" text="Etat" />
+                  <TableColumn fx:id="match_col" prefWidth="90.39996337890625" text="Match" />
+                  <TableColumn fx:id="nbrbillet_col" minWidth="0.0" prefWidth="142.39990234375" text="Nombre de billets" />
+                  <TableColumn fx:id="user_col" prefWidth="124.00006103515625" text="Utilisateur" />
+                  <TableColumn fx:id="id_col" minWidth="1.60003662109375" prefWidth="1.60003662109375" text="id" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnadd" layoutX="38.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchform" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Ajouter" />
+            <Button fx:id="btnsupprimer" layoutX="571.0" layoutY="240.0" mnemonicParsing="false" onAction="#supprimerReservation" styleClass="delete-btn" stylesheets="@dashboardDesign.css" text="Supprimer" />
+            <Button fx:id="btnupdate" layoutX="493.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchform2" styleClass="update-btn" stylesheets="@dashboardDesign.css" text="Modifier" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="add_reservation_form" layoutX="240.0" layoutY="74.0" prefHeight="506.0" prefWidth="680.0" visible="false">
+         <children>
+            <Label alignment="CENTER" layoutX="45.0" layoutY="32.0" text="Matchs" textFill="#4b4642">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="45.0" layoutY="70.0" text="Ajouter une réservation" textFill="#545352">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="97.0" layoutY="126.0" text="Utilisateur">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbuser" layoutX="97.0" layoutY="148.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <ComboBox fx:id="cbmatch" layoutX="354.0" layoutY="148.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <DatePicker fx:id="dpdate" layoutX="356.0" layoutY="219.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="354.0" layoutY="126.0" text="Match associé">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="354.0" layoutY="197.0" text="Date de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="269.0" text="Etat de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnajouter" layoutX="299.0" layoutY="416.0" mnemonicParsing="false" onAction="#ajouterReservation" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Enregistrer" />
+            <Label fx:id="letat" layoutX="98.0" layoutY="323.0" text="L'état de la réservation doit être mentionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ldate" layoutX="354.0" layoutY="253.0" text="La date doit être au minimum aujourd'hui" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="luser" layoutX="95.0" layoutY="181.0" text="L'utilisateur correspondant doit être être selectionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lmatch" layoutX="355.0" layoutY="181.0" text="Le match associé doit être être selectionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lnbrbillet" layoutX="98.0" layoutY="253.0" text="Le nombre de billet doit être positif" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="97.0" layoutY="197.0" text="Nombre de billets">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfnbrbillet" layoutX="100.0" layoutY="220.0" prefHeight="26.0" prefWidth="202.0" styleClass="labbtn" />
+            <TextField fx:id="tfetat" layoutX="101.0" layoutY="296.0" prefHeight="26.0" prefWidth="202.0" styleClass="labbtn" />
+            <Button fx:id="btnrevenir" layoutX="569.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchform" stylesheets="@dashboardDesign.css" text="Revenir">
+               <styleClass>
+                  <String fx:value="labbtn" />
+                  <String fx:value="clear-btn" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="update_reservation_form" layoutX="239.0" layoutY="74.0" prefHeight="506.0" prefWidth="680.0" visible="false">
+         <children>
+            <Label fx:id="ldate1" layoutX="353.0" layoutY="237.0" text="La date doit être au minimum aujourd'hui" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lrA1" layoutX="304.0" layoutY="394.0" text="Le résultat doit être positif" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lrB1" layoutX="103.0" layoutY="394.0" text="Le résultat doit être positif" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lprix1" layoutX="475.0" layoutY="394.0" text="Le prix doit être positif" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="leqA1" layoutX="98.0" layoutY="168.0" text="L'équipe à domicile doit être être selectionnée" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="leqB1" layoutX="355.0" layoutY="168.0" text="L'équipe éxtérieure doit être être selectionnée" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ltype1" layoutX="94.0" layoutY="237.0" text="Le type du match doit être être selectionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lstade1" layoutX="92.0" layoutY="316.0" text="Le stade du match doit être être selectionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ltournoi1" layoutX="355.0" layoutY="316.0" text="Le tournoi du match doit être être selectionné" textFill="#fc0202" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="356.0" layoutY="108.0" text="Match Associé">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="356.0" layoutY="184.0" text="Date de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="260.0" text="Etat de la réservation">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnmodifier" layoutX="553.0" layoutY="431.0" mnemonicParsing="false" onAction="#modifierReservation" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Enregistrer" />
+            <Label alignment="CENTER" layoutX="46.0" layoutY="26.0" text="Matchs" textFill="#4b4642">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="45.0" layoutY="65.0" text="Modifier une réservation" textFill="#545352">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="99.0" layoutY="108.0" text="Utilisateur">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dpdate1" layoutX="349.0" layoutY="205.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <ComboBox fx:id="cbmatch1" layoutX="349.0" layoutY="130.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <ComboBox fx:id="cbuser1" layoutX="88.0" layoutY="130.0" prefHeight="26.0" prefWidth="203.0" styleClass="labbtn" stylesheets="@dashboardDesign.css" />
+            <Label layoutX="100.0" layoutY="184.0" text="Nombre de billets">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfid1" layoutX="370.0" layoutY="418.0" visible="false" />
+            <Button fx:id="btnrevenir1" layoutX="568.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchform2" stylesheets="@dashboardDesign.css" text="Revenir">
+               <styleClass>
+                  <String fx:value="labbtn" />
+                  <String fx:value="clear-btn" />
+               </styleClass>
+            </Button>
+            <TextField fx:id="tfnbrbillet1" layoutX="84.0" layoutY="205.0" prefHeight="26.0" prefWidth="202.0" styleClass="labbtn" />
+            <TextField fx:id="tfetat1" layoutX="84.0" layoutY="282.0" prefHeight="26.0" prefWidth="202.0" styleClass="labbtn" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="221.0" prefHeight="879.0" prefWidth="319.0" style="-fx-background-radius: 0px 50px 0px 0px;" styleClass="nav-form" stylesheets="@dashboardDesign.css">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="21.0" layoutY="126.0" prefHeight="30.0" prefWidth="140.0" styleClass="sidebar-btn-text">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="45.0" layoutY="178.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="1.0" prefWidth="176.0" styleClass="sidebar-btn-text">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label onMouseClicked="#matchclick" prefHeight="20.0" prefWidth="72.0" text="Match" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="53.0" layoutY="208.0" prefHeight="34.0" prefWidth="176.0" styleClass="sidebar-btn-text">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <children>
+                  <Label onMouseClicked="#reservationclick" prefHeight="20.0" prefWidth="97.0" text="Reservation" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="246.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text" stylesheets="@dashboardDesign.css">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="27.0" prefWidth="88.0" text="  Blogs" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="276.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <children>
+                  <Label onMouseClicked="#blogclick" prefHeight="17.0" prefWidth="59.0" text="Blog" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="51.0" layoutY="306.0" prefHeight="30.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <children>
+                  <Label alignment="CENTER" onMouseClicked="#commentaireclick" prefHeight="30.0" prefWidth="90.0" text="Commentaire" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button layoutX="4.0" layoutY="608.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="56.0" styleClass="nav-btn" stylesheets="@../../../../../../../Documents/TuniSport/src/edu/tunisport/gui/dashboardDesign.css" />
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="15.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-blog-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="11.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-football-24.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="13.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-les-plaintes-30.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="59.0" layoutY="447.0" prefHeight="27.0" prefWidth="140.0" text="Reclamations" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="14.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-heures-supplémentaires-50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="57.0" layoutY="542.0" prefHeight="27.0" prefWidth="249.0" text="Hebergements &amp; Transports" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="19.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-aéroport-50.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="61.0" layoutY="795.0" onMouseClicked="#logout" prefHeight="27.0" prefWidth="71.0" text="Logout" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="17.0" layoutY="792.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-déconnexion-50.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="51.0" layoutY="358.0" prefHeight="27.0" prefWidth="118.0" text=" Evenements" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="412.0" onMouseClicked="#typeclick" prefHeight="30.0" prefWidth="63.0" text="Type" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="382.0" onMouseClicked="#evenementclick" prefHeight="30.0" prefWidth="99.0" text="Evenement" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="42.0" layoutY="149.0" prefHeight="27.0" prefWidth="88.0" text="  Matchs" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="475.0" onMouseClicked="#reclamationclick" prefHeight="30.0" prefWidth="99.0" text="Reclamation" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="36.0" layoutY="505.0" onMouseClicked="#reponseclick" prefHeight="30.0" prefWidth="99.0" text="Reponse" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="53.0" layoutY="570.0" onMouseClicked="#hebergementclick" prefHeight="30.0" prefWidth="99.0" text="Hebergement" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="42.0" layoutY="600.0" onMouseClicked="#transportclick" prefHeight="30.0" prefWidth="99.0" text="Transport" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="80.0" layoutY="14.0" onMouseClicked="#Dashboardclick" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="167.0" fitWidth="180.0" layoutX="63.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Documents/TuniSport/src/edu/tunisport/gui/tunisport.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="167.0" fitWidth="180.0" layoutX="63.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tunisport.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

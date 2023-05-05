@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.tunisport.gui.DetailsCommentaireController">
+   <children>
+      <Label layoutX="76.0" layoutY="97.0" text="Blog ID" textFill="#fc0505">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfBlogcom" editable="false" layoutX="226.0" layoutY="102.0" />
+      <Label layoutX="76.0" layoutY="135.0" text="User ID" textFill="#fc0505">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfusercom" editable="false" layoutX="226.0" layoutY="140.0" />
+      <Label layoutX="76.0" layoutY="170.0" text="Commentaire" textFill="#fc0505">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfcommentaire" editable="false" layoutX="226.0" layoutY="175.0" />
+      <Label layoutX="76.0" layoutY="211.0" text="Date" textFill="#fc0505">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfdate" editable="false" layoutX="226.0" layoutY="216.0" />
+   </children>
+</AnchorPane>

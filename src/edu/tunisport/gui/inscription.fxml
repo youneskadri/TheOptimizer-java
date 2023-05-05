@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="inscriptionPanel" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tunisport.gui.InscriptionController">
+   <children>
+      <ImageView fitHeight="384.0" fitWidth="216.0" layoutX="158.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edu/tunisport/images/tunisport.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="" prefHeight="803.0" prefWidth="672.0" style="-fx-background-color: #262626;">
+         <children>
+            <ImageView fitHeight="384.0" fitWidth="216.0" layoutX="167.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="100.0">
+               <image>
+                  <Image url="@../images/tunisport.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="txtFName" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="195.0" prefHeight="25.0" prefWidth="286.0" promptText="first Name" />
+      <JFXTextField fx:id="txtSName" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="273.0" prefHeight="25.0" prefWidth="286.0" promptText="second Name" />
+      <JFXTextField fx:id="txtEmail" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="349.0" prefHeight="25.0" prefWidth="286.0" promptText="Email" />
+      <JFXPasswordField fx:id="txtFPass" focusColor="BLACK" labelFloat="true" layoutX="786.0" layoutY="629.0" prefHeight="25.0" prefWidth="286.0" promptText="Password" />
+      <Label layoutX="801.0" layoutY="90.0" prefHeight="51.0" prefWidth="321.0" text="Create Account">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="registerButton" layoutX="815.0" layoutY="688.0" onAction="#action" prefHeight="68.0" prefWidth="217.0" style="-fx-background-radius: 20; -fx-background-color: #262626;" styleClass="ra" text="Sign up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtPhone" focusColor="BLACK" labelFloat="true" layoutX="787.0" layoutY="421.0" prefHeight="25.0" prefWidth="286.0" promptText="+216" />
+      <Label fx:id="MailLabel" layoutX="787.0" layoutY="446.0" prefHeight="17.0" prefWidth="301.0" textFill="#f20c0c" />
+      <Label fx:id="PwLabel" layoutX="787.0" layoutY="586.0" prefHeight="17.0" prefWidth="286.0" textFill="#e40707" />
+      <Label fx:id="prenLabel" layoutX="787.0" layoutY="277.0" prefHeight="17.0" prefWidth="286.0" textFill="#f20404" />
+      <Label fx:id="nomLabel" layoutX="787.0" layoutY="369.0" prefHeight="17.0" prefWidth="286.0" textFill="#fc1010" />
+      <Label fx:id="phoneL" layoutX="795.0" layoutY="633.0" prefHeight="17.0" prefWidth="286.0" textFill="#f20707" />
+      <JFXComboBox fx:id="choicebox" layoutX="780.0" layoutY="494.0" prefHeight="25.0" prefWidth="286.0" />
+      <JFXTextField fx:id="answer" layoutX="780.0" layoutY="570.0" prefHeight="25.0" prefWidth="286.0" />
+      <AnchorPane id="AnchorPane" fx:id="verifAccoun" layoutX="289.0" layoutY="178.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@codev.css" />
+         </stylesheets>
+         <children>
+            <Label layoutX="200.0" layoutY="57.0" text="Verify Your Account">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="codetxt" layoutX="134.0" layoutY="160.0" prefHeight="25.0" prefWidth="309.0" />
+            <JFXButton layoutX="220.0" layoutY="226.0" onAction="#validateAcc" prefHeight="45.0" prefWidth="138.0" style="-fx-background-color: #2688FF; -fx-background-radius: 20;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="220.0" layoutY="299.0" onAction="#resendCode" prefHeight="45.0" prefWidth="138.0" style="-fx-background-color: red; -fx-background-radius: 20;" text="Resend the code" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="159.0" fitWidth="121.0" layoutX="486.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Documents/NetBeansProjects/UserJavafx/src/edu/images/tunisport.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
